@@ -39,7 +39,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '';
+$config['base_url']	= 'http://'.$_SERVER['HTTP_HOST'].'/cvc';
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ $config['base_url']	= '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -211,7 +211,7 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 1;
 
 /*
 |--------------------------------------------------------------------------
@@ -272,7 +272,7 @@ $config['cache_path'] = '';
 | http://codeigniter.com/user_guide/libraries/sessions.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = '~k0L0k0t0k~';
 
 /*
 |--------------------------------------------------------------------------
@@ -334,7 +334,7 @@ $config['cookie_httponly'] 	= FALSE;
 | COOKIE data is encountered
 |
 */
-$config['global_xss_filtering'] = FALSE;
+$config['global_xss_filtering'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -350,10 +350,10 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_regenerate' = Regenerate token on every submission
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
-$config['csrf_protection'] = FALSE;
-$config['csrf_token_name'] = 'csrf_test_name';
-$config['csrf_cookie_name'] = 'csrf_cookie_name';
-$config['csrf_expire'] = 7200;
+$config['csrf_protection'] = TRUE;
+$config['csrf_token_name'] = 'token';
+$config['csrf_cookie_name'] = 'cvc_data';
+$config['csrf_expire'] = 3600;
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array();
 
@@ -374,7 +374,7 @@ $config['csrf_exclude_uris'] = array();
 | by the output class.  Do not 'echo' any values with compression enabled.
 |
 */
-$config['compress_output'] = FALSE;
+$config['compress_output'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -386,7 +386,7 @@ $config['compress_output'] = FALSE;
 | code less readable.
 |
 */
-$config['minify_output'] = FALSE;
+$config['minify_output'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -412,7 +412,7 @@ $config['time_reference'] = 'local';
 | in your view files.  Options are TRUE or FALSE (boolean)
 |
 */
-$config['rewrite_short_tags'] = FALSE;
+$config['rewrite_short_tags'] = TRUE;
 
 
 /*
