@@ -7,7 +7,7 @@ class LinkedinApi {
     public function __construct()
     {
         $this->to =& get_instance();
-        $this->to->config->load('linkedin');
+        $this->to->config->load('socmed');
 
         $this->mainhost = 'https://www.linkedin.com';
         $this->apihost  = 'https://api.linkedin.com';

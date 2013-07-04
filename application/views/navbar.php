@@ -1,6 +1,6 @@
     <div id="navigation">
         <div class="container-fluid">
-            <a href="<?= site_url() ?>" id="brand"><i class="icon-book"></i> CV Generator</a>
+            <a href="<?= site_url() ?>" id="brand"><i class="icon-book"></i> Buat CV</a>
             <a href="#" class="toggle-nav" rel="tooltip" data-placement="bottom" title="" data-original-title="Toggle navigation"><i class="icon-reorder"></i></a>
             <div class="user">
                 <?php if (session('userid')) { ?>

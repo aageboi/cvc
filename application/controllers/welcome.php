@@ -16,4 +16,10 @@ class Welcome extends CI_Controller
         $this->data['yield'] = 'home';
         $this->load->view('layout', $this->data);
     }
+
+    public function wow ()
+    {
+        echo 'crot';
+        die;
+    }
 }

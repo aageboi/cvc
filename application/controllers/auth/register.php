@@ -53,6 +53,8 @@ class Register extends CI_Controller {
                             set_session('userid', $this->db->insert_id());
                             set_session('username', $username);
 
+                            $this->session->unset_userdata('socmed');
+
                             redirect('user');
                         }
 
@@ -130,6 +132,29 @@ class Register extends CI_Controller {
                     'province'  => 0,
                     'phone'     => '',
                 );
+            } elseif (session('socmed') == 'twitter') {
+                $this->load->library('TwitterApi');
+
+                $data_token = session('data_token');
+
+                list($_data['oauth_token'], $_data['oauth_token_secret']) = explode(" -||- ", $data_token->access_token);
+                $_data['id'] = session('id');
+
+                $socmed_profile = $this->twitterapi->getUser($_data);
+
+                $data_profile = array(
+                    'userid' => (int) $id,
+                    'firstname' => (isset($socmed_profile->name) ? $socmed_profile->name : ''),
+                    'lastname'  => '',
+                    'nickname'  => (isset($socmed_profile->screen_name) ? $socmed_profile->screen_name : ''),
+                    'gender'    => '',
+                    'religion'  => '',
+                    'address'   => '',
+                    'country'   => 0,
+                    'city'      => 0,
+                    'province'  => 0,
+                    'phone'     => '',
+                );
             }
 
             $this->load->model('userprofile_model', 'user_profile');
@@ -139,7 +164,6 @@ class Register extends CI_Controller {
                 'id'            => '',
                 'email'         => '',
                 'data_token'    => '',
-                'socmed'        => '',
             );
             $this->session->unset_userdata($array_items);
         }

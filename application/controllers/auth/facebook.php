@@ -16,7 +16,7 @@ class Facebook extends CI_Controller {
 
         // $this->load->library('Facebook');
 
-        $this->config->load('facebook');
+        $this->config->load('socmed');
         $this->cfg   = $this->config->item('facebook');
 
         $this->facebook = new FacebookApi(array(
